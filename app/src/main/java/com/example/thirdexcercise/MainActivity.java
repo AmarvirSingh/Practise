@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     // creating array list of coffee types
     ArrayList<coffee> list = new ArrayList<>();
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     // creating needed instance of components
     TextView total;
     Spinner spinner;
+    RadioButton rbSmall, rbMedium, rbLarge;
 
 
 
@@ -33,6 +35,15 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
         // creating connection with design
         total = findViewById(R.id.total);
         spinner = findViewById(R.id.spinner);
+        rbSmall = findViewById(R.id.rbSmall);
+        rbMedium = findViewById(R.id.rbMedium);
+        rbLarge = findViewById(R.id.rbLarge);
+
+        // creating event for each raioButton
+        rbSmall.setOnClickListener(this);
+        rbMedium.setOnClickListener(this);
+        rbLarge.setOnClickListener(this);
+
 
 
         // filling the spinner
@@ -67,5 +78,10 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }
